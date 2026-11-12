@@ -164,6 +164,8 @@ h1 .soft { color: var(--ter); }
 .stage.swap img { opacity: 0; }
 .stage .zoom { position: absolute; right: 12px; bottom: 12px; width: 38px; height: 38px; border-radius: 99px; display: grid; place-items: center; background: rgba(29,28,26,.72); color: #fff; font-size: 17px; opacity: 0; transform: scale(.9); transition: opacity .2s, transform .2s; z-index: 2; }
 .stage:hover .zoom, .stage:focus-visible .zoom { opacity: 1; transform: none; }
+.phone-stage { max-width: 270px; margin: 0 auto; }
+.f-phone { border-radius: 34px; }
 .reader-stage { max-width: 420px; margin: 0 auto; }
 .x4-stage { max-width: 270px; margin: 0 auto; }
 .thumbs { position: relative; display: flex; gap: 10px; overflow-x: auto; padding: 4px; scrollbar-width: thin; }
@@ -370,14 +372,14 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
         </div>
       </div>
       <div class="gallery" data-gallery="WaveSafe">
-        <button class="stage" type="button" aria-label="Enlarge screenshot"><div class="f-mac"><img src="assets/img/wavesafe-app-ipad-1-library.jpg" alt="Library and Now Playing on iPad" width="1600" height="1200" loading="lazy"></div><span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-zoom"/></svg></span></button>
-        <div class="thumbs">
-          <button type="button" aria-current="true" data-src="assets/img/wavesafe-app-ipad-1-library.jpg" data-cap="Library and Now Playing on iPad"><img src="assets/img/wavesafe-app-ipad-1-library.jpg" alt="" loading="lazy"></button>
-          <button type="button" data-src="assets/img/wavesafe-app-ipad-2-soundtracks.jpg" data-cap="Soundtracks as a grid of album art"><img src="assets/img/wavesafe-app-ipad-2-soundtracks.jpg" alt="" loading="lazy"></button>
-          <button type="button" data-src="assets/img/wavesafe-app-ipad-3-album.jpg" data-cap="An album"><img src="assets/img/wavesafe-app-ipad-3-album.jpg" alt="" loading="lazy"></button>
-          <button type="button" data-src="assets/img/wavesafe-app-ipad-4-favorites.jpg" data-cap="Favorites"><img src="assets/img/wavesafe-app-ipad-4-favorites.jpg" alt="" loading="lazy"></button>
+        <button class="stage phone-stage" type="button" aria-label="Enlarge screenshot"><div class="f-mac f-phone"><img src="assets/img/wavesafe-app-iphone-1-nowplaying.jpg" alt="Now Playing with the queue" width="644" height="1400" loading="lazy"></div><span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-zoom"/></svg></span></button>
+        <div class="thumbs tall">
+          <button type="button" aria-current="true" data-src="assets/img/wavesafe-app-iphone-1-nowplaying.jpg" data-cap="Now Playing with the queue"><img src="assets/img/wavesafe-app-iphone-1-nowplaying.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/wavesafe-app-iphone-2-library.jpg" data-cap="The library, by artist"><img src="assets/img/wavesafe-app-iphone-2-library.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/wavesafe-app-iphone-3-album.jpg" data-cap="An album"><img src="assets/img/wavesafe-app-iphone-3-album.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/wavesafe-app-iphone-4-soundtracks.jpg" data-cap="Soundtracks as a grid of album art"><img src="assets/img/wavesafe-app-iphone-4-soundtracks.jpg" alt="" loading="lazy"></button>
         </div>
-        <p class="caption" aria-live="polite">Library and Now Playing on iPad</p>
+        <p class="caption" aria-live="polite">Now Playing with the queue</p>
       </div>
     </article>
 
