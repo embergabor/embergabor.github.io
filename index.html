@@ -178,6 +178,7 @@ h1 .soft { color: var(--ter); }
 .g-count { display: block; font: 600 12px/1 var(--mono); color: var(--ter); margin-top: 6px; }
 .g-arrow { width: 40px; height: 40px; flex: none; border-radius: 99px; border: 1px solid var(--border-strong); background: var(--card); color: var(--text); display: grid; place-items: center; cursor: pointer; font-size: 18px; transition: background .15s; }
 .g-arrow:hover { background: var(--chip); }
+.g-arrow[hidden], .thumbs[hidden], .g-count[hidden] { display: none; }
 .caption { font-size: 14px; color: var(--sec); text-align: center; min-height: 1.4em; margin: 0; }
 
 /* Flow diagrams */
@@ -460,15 +461,12 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
         </ul>
         <div class="actions"><a class="btn btn-dark" href="https://github.com/embergabor/deck-gog-installer"><svg class="i"><use href="#i-code"/></svg>View on GitHub</a></div>
       </div>
-      <div class="flow" role="img" aria-label="How GOG Installer for Steam Deck works: installers on a server or USB drive are mounted read-only, GOG's own installer runs under Proton, and the game is added to Steam.">
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-server"/></svg></span><div><strong>Server share or USB drive</strong><span>One folder per game, as downloaded from GOG</span></div><span class="n-step">01</span></div>
-        <div class="link go"></div>
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-lock"/></svg></span><div><strong>Mounted read-only</strong><span>The installer is never copied or cached</span></div><span class="n-step">02</span></div>
-        <div class="link go"></div>
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-wine"/></svg></span><div><strong>GOG's installer under Proton</strong><span>Each game in its own prefix</span></div><span class="n-step">03</span></div>
-        <div class="link go"></div>
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-grid"/></svg></span><div><strong>In your Steam library</strong><span>Shortcut, Proton version and artwork</span></div><span class="n-step">04</span></div>
-        <div class="flow-foot"><span class="tag">X select</span><span class="tag">A install</span><span class="tag">Y add to Steam</span></div>
+      <div class="gallery" data-gallery="GOG Installer for Steam Deck">
+        <button class="stage" type="button" aria-label="Enlarge screenshot"><div class="f-deck"><img src="assets/img/gog-installer-library.png" alt="The library: installers on the share, their sizes, and what's already in Steam" width="1280" height="800" loading="lazy"></div><span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-zoom"/></svg></span></button>
+        <div class="thumbs">
+          <button type="button" aria-current="true" data-src="assets/img/gog-installer-library.png" data-cap="The library: installers on the share, their sizes, and what's already in Steam"><img src="assets/img/gog-installer-library.png" alt="" loading="lazy"></button>
+        </div>
+        <p class="caption" aria-live="polite">The library: installers on the share, their sizes, and what's already in Steam</p>
       </div>
     </article>
   </div>
@@ -688,6 +686,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
     mid.appendChild(cap); mid.appendChild(count);
     nav.appendChild(arrow(-1, 'Previous screenshot', 'i-left')); nav.appendChild(mid); nav.appendChild(arrow(1, 'Next screenshot', 'i-right'));
     g.insertBefore(nav, strip);
+    if (thumbs.length < 2) { strip.hidden = true; count.hidden = true; nav.firstChild.hidden = true; nav.lastChild.hidden = true; }
     thumbs.forEach(function (b, i) {
       b.setAttribute('aria-label', 'Show: ' + b.dataset.cap);
       b.addEventListener('click', function () { go(i); });
