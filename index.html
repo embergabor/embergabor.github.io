@@ -114,6 +114,8 @@ h1 .soft { color: var(--ter); }
 .f-deck img { width: 100%; border-radius: 6px; }
 .f-reader { border-radius: 24px; padding: 18px 16px 40px; background: var(--bezel-reader); box-shadow: var(--shadow-lg); outline: 1px solid var(--border); }
 .f-reader img { width: 100%; border-radius: 3px; background: #fff; }
+.f-x4 { border-radius: 20px; padding: 14px 14px 46px; position: relative; }
+.f-x4::after { content: ""; position: absolute; left: 50%; bottom: 17px; width: 64px; height: 12px; margin-left: -32px; border-radius: 6px; background: var(--border-strong); }
 
 /* Device shelf */
 .shelf { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 64px; }
@@ -162,13 +164,21 @@ h1 .soft { color: var(--ter); }
 .stage .zoom { position: absolute; right: 12px; bottom: 12px; width: 38px; height: 38px; border-radius: 99px; display: grid; place-items: center; background: rgba(29,28,26,.72); color: #fff; font-size: 17px; opacity: 0; transform: scale(.9); transition: opacity .2s, transform .2s; z-index: 2; }
 .stage:hover .zoom, .stage:focus-visible .zoom { opacity: 1; transform: none; }
 .reader-stage { max-width: 380px; margin: 0 auto; }
-.thumbs { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 6px; scrollbar-width: thin; }
-.thumbs button { flex: none; padding: 0; border: 2px solid transparent; border-radius: 10px; background: var(--raised); cursor: pointer; overflow: hidden; width: 92px; height: 62px; opacity: .72; transition: opacity .15s, border-color .15s; }
+.x4-stage { max-width: 290px; margin: 0 auto; }
+.thumbs { position: relative; display: flex; gap: 10px; overflow-x: auto; padding: 4px; scrollbar-width: thin; }
+.thumbs button { flex: none; padding: 0; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--raised); cursor: pointer; overflow: hidden; width: 92px; height: 62px; }
+.thumbs button:first-child { margin-left: auto; }
+.thumbs button:last-child { margin-right: auto; }
 .thumbs button img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.thumbs button:hover { opacity: 1; }
-.thumbs button[aria-current="true"] { border-color: var(--ink); opacity: 1; }
-.thumbs.tall button { width: 56px; height: 74px; }
-.caption { font-size: 14px; color: var(--ter); text-align: center; min-height: 1.4em; margin: 0; }
+.thumbs button:hover { border-color: var(--ter); transform: translateY(-1px); }
+.thumbs button.on, .thumbs button[aria-current="true"] { border-color: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
+.thumbs.tall button { width: 66px; height: 92px; }
+.g-nav { display: flex; align-items: center; gap: 12px; }
+.g-mid { flex: 1; min-width: 0; text-align: center; }
+.g-count { display: block; font: 600 12px/1 var(--mono); color: var(--ter); margin-top: 6px; }
+.g-arrow { width: 40px; height: 40px; flex: none; border-radius: 99px; border: 1px solid var(--border-strong); background: var(--card); color: var(--text); display: grid; place-items: center; cursor: pointer; font-size: 18px; transition: background .15s; }
+.g-arrow:hover { background: var(--chip); }
+.caption { font-size: 14px; color: var(--sec); text-align: center; min-height: 1.4em; margin: 0; }
 
 /* Flow diagrams */
 .flow { display: flex; flex-direction: column; gap: 0; padding: 32px; border-radius: 22px; background: var(--tint); }
@@ -322,7 +332,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
       </a>
       <a href="#deck" class="g-deck reveal">
         <span class="s-top"><span class="s-icon tinted"><svg class="i"><use href="#i-deck"/></svg></span><span class="s-count">2 tools</span></span>
-        <strong>Steam Deck</strong><span class="s-names">WaveSafe, GOG Installer</span>
+        <strong>Steam Deck</strong><span class="s-names">WaveSafe, GOG Installer for Steam Deck</span>
       </a>
       <a href="#readers" class="g-read reveal">
         <span class="s-top"><span class="s-icon tinted"><svg class="i"><use href="#i-reader"/></svg></span><span class="s-count">2 projects</span></span>
@@ -388,15 +398,15 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
         <p class="p-note">Screenshots use generated placeholder images.</p>
       </div>
       <div class="gallery" data-gallery="Film Companion">
-        <button class="stage" type="button" aria-label="Enlarge screenshot"><div class="f-mac"><img src="assets/img/film-companion-1-rolls.jpg" alt="Rolls: every roll with its ID, title and progress" width="1600" height="1028" loading="lazy"></div><span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-zoom"/></svg></span></button>
+        <button class="stage" type="button" aria-label="Enlarge screenshot"><div class="f-mac"><img src="assets/img/film-companion-2-roll.jpg" alt="A roll: live contact sheet, checklist and facts" width="1600" height="1028" loading="lazy"></div><span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-zoom"/></svg></span></button>
         <div class="thumbs">
-          <button type="button" aria-current="true" data-src="assets/img/film-companion-1-rolls.jpg" data-cap="Rolls: every roll with its ID, title and progress"><img src="assets/img/film-companion-1-rolls.jpg" alt="" loading="lazy"></button>
-          <button type="button" data-src="assets/img/film-companion-2-roll.jpg" data-cap="A roll: live contact sheet, checklist and facts"><img src="assets/img/film-companion-2-roll.jpg" alt="" loading="lazy"></button>
+          <button type="button" aria-current="true" data-src="assets/img/film-companion-2-roll.jpg" data-cap="A roll: live contact sheet, checklist and facts"><img src="assets/img/film-companion-2-roll.jpg" alt="" loading="lazy"></button>
           <button type="button" data-src="assets/img/film-companion-3-scan.jpg" data-cap="Scanning: frames arrive strip by strip"><img src="assets/img/film-companion-3-scan.jpg" alt="" loading="lazy"></button>
           <button type="button" data-src="assets/img/film-companion-4-preview.jpg" data-cap="A frame opened large"><img src="assets/img/film-companion-4-preview.jpg" alt="" loading="lazy"></button>
           <button type="button" data-src="assets/img/film-companion-5-contact-sheet.jpg" data-cap="An A4 contact sheet for one sleeve page"><img src="assets/img/film-companion-5-contact-sheet.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/film-companion-1-rolls.jpg" data-cap="Rolls: every roll with its ID, title and progress"><img src="assets/img/film-companion-1-rolls.jpg" alt="" loading="lazy"></button>
         </div>
-        <p class="caption" aria-live="polite">Rolls: every roll with its ID, title and progress</p>
+        <p class="caption" aria-live="polite">A roll: live contact sheet, checklist and facts</p>
       </div>
     </article>
   </div>
@@ -440,7 +450,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
     <article class="project flip reveal" aria-labelledby="p-gogi">
       <div class="p-text">
         <div class="p-kicker"><span class="tag tinted">Game Mode app</span><span class="tag">Python</span><span class="tag">Proton</span></div>
-        <h3 id="p-gogi">GOG Installer</h3>
+        <h3 id="p-gogi">GOG Installer for Steam Deck</h3>
         <p class="p-sum">A fullscreen, gamepad-first app that runs GOG installers from your server under Proton and adds the games to Steam.</p>
         <ul class="points">
           <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Installs straight from the share, nothing copied to the Deck first</li>
@@ -450,7 +460,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
         </ul>
         <div class="actions"><a class="btn btn-dark" href="https://github.com/embergabor/deck-gog-installer"><svg class="i"><use href="#i-code"/></svg>View on GitHub</a></div>
       </div>
-      <div class="flow" role="img" aria-label="How GOG Installer works: installers on a server or USB drive are mounted read-only, GOG's own installer runs under Proton, and the game is added to Steam.">
+      <div class="flow" role="img" aria-label="How GOG Installer for Steam Deck works: installers on a server or USB drive are mounted read-only, GOG's own installer runs under Proton, and the game is added to Steam.">
         <div class="node"><span class="n-icon"><svg class="i"><use href="#i-server"/></svg></span><div><strong>Server share or USB drive</strong><span>One folder per game, as downloaded from GOG</span></div><span class="n-step">01</span></div>
         <div class="link go"></div>
         <div class="node"><span class="n-icon"><svg class="i"><use href="#i-lock"/></svg></span><div><strong>Mounted read-only</strong><span>The installer is never copied or cached</span></div><span class="n-step">02</span></div>
@@ -490,7 +500,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
       </div>
       <div class="gallery" data-gallery="Calm UI for KOReader">
         <button class="stage reader-stage" type="button" aria-label="Enlarge screenshot"><div class="f-reader"><img src="assets/img/calmui-library.png" alt="The library: book covers with titles and reading progress" width="526" height="702" loading="lazy"></div><span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-zoom"/></svg></span></button>
-        <div class="thumbs tall" style="justify-content:center">
+        <div class="thumbs tall">
           <button type="button" aria-current="true" data-src="assets/img/calmui-library.png" data-cap="The library: book covers with titles and reading progress"><img src="assets/img/calmui-library.png" alt="" loading="lazy"></button>
           <button type="button" data-src="assets/img/calmui-reading.png" data-cap="A page, with only the page number below"><img src="assets/img/calmui-reading.png" alt="" loading="lazy"></button>
           <button type="button" data-src="assets/img/calmui-sheet-text.png" data-cap="The sheet: light, warmth and text"><img src="assets/img/calmui-sheet-text.png" alt="" loading="lazy"></button>
@@ -516,16 +526,18 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
         <div class="actions">
           <a class="btn btn-dark" href="https://github.com/embergabor/CrossInkLibScan/tree/feature/metadata-library"><svg class="i"><use href="#i-code"/></svg>View on GitHub</a>
         </div>
-        <p class="p-note">The library work is on the <code>feature/metadata-library</code> branch.</p>
+        <p class="p-note">The library work is on the <code>feature/metadata-library</code> branch. Screenshots are from the simulator, with public-domain sample books.</p>
       </div>
-      <div class="flow" role="img" aria-label="How Library Scan works: one pass over the SD card reads each book's metadata, writes an index to the SD card, and the Library browses it by author and series.">
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-sd"/></svg></span><div><strong>SD card</strong><span>EPUBs in any folder</span></div><span class="n-step">01</span></div>
-        <div class="link go"></div>
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-scan"/></svg></span><div><strong>Scan</strong><span>One pass with live progress; Back cancels</span></div><span class="n-step">02</span></div>
-        <div class="link go"></div>
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-index"/></svg></span><div><strong>Index on the card</strong><span>Title, author and series for every book</span></div><span class="n-step">03</span></div>
-        <div class="link go"></div>
-        <div class="node"><span class="n-icon"><svg class="i"><use href="#i-books"/></svg></span><div><strong>Library</strong><span>All Books · Authors · Series · Browse Files</span></div><span class="n-step">04</span></div>
+      <div class="gallery" data-gallery="CrossInk Library Scan">
+        <button class="stage x4-stage" type="button" aria-label="Enlarge screenshot"><div class="f-reader f-x4"><img src="assets/img/crossink-library.png" alt="The Library: All Books, Authors, Series and Browse Files" width="480" height="800" loading="lazy"></div><span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-zoom"/></svg></span></button>
+        <div class="thumbs tall">
+          <button type="button" aria-current="true" data-src="assets/img/crossink-library.png" data-cap="The Library: All Books, Authors, Series and Browse Files"><img src="assets/img/crossink-library.png" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/crossink-authors.png" data-cap="Authors, with the number of books by each"><img src="assets/img/crossink-authors.png" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/crossink-series.png" data-cap="Series, with the number of books in each"><img src="assets/img/crossink-series.png" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/crossink-series-books.png" data-cap="A series in reading order"><img src="assets/img/crossink-series-books.png" alt="" loading="lazy"></button>
+          <button type="button" data-src="assets/img/crossink-all-books.png" data-cap="All Books"><img src="assets/img/crossink-all-books.png" alt="" loading="lazy"></button>
+        </div>
+        <p class="caption" aria-live="polite">The Library: All Books, Authors, Series and Browse Files</p>
       </div>
     </article>
   </div>
@@ -636,20 +648,51 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
   }
   document.querySelectorAll('.gallery').forEach(function (g) {
     var stage = g.querySelector('.stage'), img = stage.querySelector('img'), cap = g.querySelector('.caption');
-    var thumbs = Array.prototype.slice.call(g.querySelectorAll('.thumbs button'));
+    var strip = g.querySelector('.thumbs');
+    var thumbs = Array.prototype.slice.call(strip.querySelectorAll('button'));
     var data = { name: g.dataset.gallery, items: thumbs.map(function (b) { return { src: b.dataset.src, cap: b.dataset.cap }; }) };
-    var at = 0;
+    var at = 0, count = document.createElement('span');
+    count.className = 'g-count';
+    function mark() {
+      thumbs.forEach(function (t, j) {
+        if (j === at) { t.setAttribute('aria-current', 'true'); t.classList.add('on'); }
+        else { t.removeAttribute('aria-current'); t.classList.remove('on'); }
+      });
+      count.textContent = (at + 1) + ' / ' + thumbs.length;
+    }
+    function go(i) {
+      i = (i + thumbs.length) % thumbs.length;
+      if (i === at) return;
+      at = i; mark();
+      var b = thumbs[i];
+      strip.scrollLeft = b.offsetLeft - (strip.clientWidth - b.offsetWidth) / 2;
+      stage.classList.add('swap');
+      var pre = new Image(); pre.onload = pre.onerror = function () {
+        setTimeout(function () {
+          if (thumbs[at] !== b) return;
+          img.src = b.dataset.src; img.alt = b.dataset.cap; img.removeAttribute('width'); img.removeAttribute('height');
+          cap.textContent = b.dataset.cap; stage.classList.remove('swap');
+        }, 120);
+      }; pre.src = b.dataset.src;
+    }
+    function arrow(dir, label, icon) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'g-arrow'; b.setAttribute('aria-label', label);
+      b.innerHTML = '<svg class="i" aria-hidden="true"><use href="#' + icon + '"/></svg>';
+      b.addEventListener('click', function () { go(at + dir); });
+      return b;
+    }
+    // Arrows and a counter go right under the picture, above the thumbnails.
+    var nav = document.createElement('div'), mid = document.createElement('div');
+    nav.className = 'g-nav'; mid.className = 'g-mid';
+    mid.appendChild(cap); mid.appendChild(count);
+    nav.appendChild(arrow(-1, 'Previous screenshot', 'i-left')); nav.appendChild(mid); nav.appendChild(arrow(1, 'Next screenshot', 'i-right'));
+    g.insertBefore(nav, strip);
     thumbs.forEach(function (b, i) {
       b.setAttribute('aria-label', 'Show: ' + b.dataset.cap);
-      b.addEventListener('click', function () {
-        if (i === at) return; at = i;
-        thumbs.forEach(function (t) { t.removeAttribute('aria-current'); }); b.setAttribute('aria-current', 'true');
-        stage.classList.add('swap');
-        var pre = new Image(); pre.onload = pre.onerror = function () {
-          setTimeout(function () { img.src = b.dataset.src; img.alt = b.dataset.cap; img.removeAttribute('width'); img.removeAttribute('height'); cap.textContent = b.dataset.cap; stage.classList.remove('swap'); }, 120);
-        }; pre.src = b.dataset.src;
-      });
+      b.addEventListener('click', function () { go(i); });
     });
+    mark();
     stage.addEventListener('click', function () {
       cur = data; show(at);
       if (lb.showModal) lb.showModal(); else window.open(data.items[at].src, '_blank');
