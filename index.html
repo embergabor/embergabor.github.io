@@ -110,6 +110,7 @@ h1 .soft { color: var(--ter); }
 .dev { position: relative; width: 100%; background: center / 100% 100% no-repeat; filter: drop-shadow(0 20px 26px rgba(29,28,26,.24)) drop-shadow(0 2px 4px rgba(29,28,26,.18)); }
 .dev > img { position: absolute; left: var(--sx); top: var(--sy); width: var(--sw); height: var(--sh); max-width: none; object-fit: contain; object-position: center bottom; background: #0B0D10; }
 .dev-deck { aspect-ratio: 883 / 356; background-image: url(assets/img/dev-deck.png); --sx: 24.35%; --sy: 9.55%; --sw: 51.53%; --sh: 80.06%; }
+.dev-deck::before { content: ""; position: absolute; left: var(--sx); top: var(--sy); width: var(--sw); height: var(--sh); background: #0B0D10; }
 .dev-kobo { aspect-ratio: 426 / 476; background-image: url(assets/img/dev-kobo.png); --sx: 6.81%; --sy: 6.09%; --sw: 73.71%; --sh: 85.92%; }
 .dev-x4 { aspect-ratio: 587 / 989; background-image: url(assets/img/dev-x4.png); --sx: 9.03%; --sy: 4.55%; --sw: 83.13%; --sh: 82.31%; }
 /* E-ink: the screenshot's white takes on the panel's own grey. */
