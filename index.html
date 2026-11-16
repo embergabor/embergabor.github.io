@@ -149,6 +149,7 @@ h1 .soft { color: var(--ter); }
 .p-title { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; }
 .p-title h3 { margin: 0; }
 .p-title img { width: 52px; height: 52px; border-radius: 12px; flex: none; }
+.p-title img.light { outline: 1px solid var(--border); outline-offset: -1px; }
 .p-kicker { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .tag { display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 10px; border-radius: 99px; font: 600 12.5px/1 var(--sans); background: var(--chip); color: var(--sec); }
 .tag.tinted { background: var(--tint); color: var(--ink); }
@@ -361,7 +362,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
     <article class="project reveal" aria-labelledby="p-simplex">
       <div class="p-text">
         <div class="p-kicker"><span class="tag tinted">Android TV 8.0+</span><span class="tag">Kotlin</span><span class="tag">Media3</span></div>
-        <h3 id="p-simplex">Simplex</h3>
+        <div class="p-title"><img class="light" src="assets/img/simplex-icon.svg" alt="" width="52" height="52"><h3 id="p-simplex">Simplex</h3></div>
         <p class="p-sum">A deliberately simple Android TV client for Plex. It shows your movies and shows and plays the files as they are.</p>
         <ul class="points">
           <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>No detail pages: OK plays, hold OK for a short menu</li>
@@ -493,7 +494,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
     <article class="project flip reveal" aria-labelledby="p-gog">
       <div class="p-text">
         <div class="p-kicker"><span class="tag tinted">macOS 14+</span><span class="tag">Swift</span><span class="tag">SwiftUI</span></div>
-        <h3 id="p-gog">GOG Disc Archiver</h3>
+        <div class="p-title"><img src="assets/img/gog-disc-archiver-icon.png" alt="" width="52" height="52"><h3 id="p-gog">GOG Disc Archiver</h3></div>
         <p class="p-sum">Back up your GOG game installers to Blu-ray and DVD, verify every file, and print matching case covers.</p>
         <ul class="points">
           <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Burns installer folders straight to BD-R or DVD+R, with no disc image</li>
@@ -522,7 +523,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
     <article class="project reveal" aria-labelledby="p-film">
       <div class="p-text">
         <div class="p-kicker"><span class="tag tinted">macOS</span><span class="tag">Swift</span><span class="tag">SilverFast</span></div>
-        <h3 id="p-film">Film Companion</h3>
+        <div class="p-title"><img src="assets/img/film-companion-icon.png" alt="" width="52" height="52"><h3 id="p-film">Film Companion</h3></div>
         <p class="p-sum">Everything around scanning developed 35 mm film, from marking the roll to filing the prints in a binder.</p>
         <ul class="points">
           <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Nine steps per roll, from marking the film to the archive</li>
@@ -589,7 +590,7 @@ dialog.lb::backdrop { background: rgba(14,14,13,.9); backdrop-filter: blur(6px);
     <article class="project flip reveal" aria-labelledby="p-cross">
       <div class="p-text">
         <div class="p-kicker"><span class="tag tinted">Firmware fork</span><span class="tag">C++</span><span class="tag">ESP32</span><span class="tag">Xteink X4</span></div>
-        <h3 id="p-cross">CrossInk Library Scan</h3>
+        <div class="p-title"><img class="light" src="assets/img/crossink-icon.png" alt="" width="52" height="52"><h3 id="p-cross">CrossInk Library Scan</h3></div>
         <p class="p-sum">A fork of <a href="https://github.com/uxjulia/CrossInk">CrossInk</a> that adds a real library: scan the SD card once, then browse every book by author or series.</p>
         <ul class="points">
           <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>All Books, Authors and Series, series in reading order</li>
